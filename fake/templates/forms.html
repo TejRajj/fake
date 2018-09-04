@@ -3,6 +3,9 @@
 {% block content %}
 
 /Forms.html
-<h1>{{forms.as_p}}</h1>
-<button>Add</button>
-{%endblock%}
+<form method="post">
+    {% csrf_token %}
+    <h1>{{forms.as_p}}</h1>
+    <a href="{% url 'add_entry'%}"> <button>Add</button></a>
+</form>
+    {%endblock%}
