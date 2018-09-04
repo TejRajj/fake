@@ -1,0 +1,13 @@
+{% extends 'boot.html'%}
+{% block content %}
+/Display_db.html
+<h2>Display Forms</h2>
+
+{% for obj in formss %}
+    <p> {{obj.First_name }}
+    {{obj.Last_name }}
+</p>
+
+{% endfor %}
+
+{% endblock %}
