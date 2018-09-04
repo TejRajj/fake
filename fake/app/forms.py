@@ -9,3 +9,4 @@ class PostForm(forms.ModelForm):
         fields = {
             'First_name','Last_name'
         }
+
