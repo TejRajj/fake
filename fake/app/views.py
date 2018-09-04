@@ -11,9 +11,8 @@ def add(request):
     if forms.is_valid():
         instance = forms.save(commit=False)
         instance.save()
-
-
-    #if request.method == "POST":
+#======================================================================
+    #     #if request.method == "POST":
     #    print(request.POST.get('First_name'))
     #    print(request.POST.get('Last_name'))
     context = {'forms':forms}
@@ -23,3 +22,8 @@ def display(request):
     form = Post.objects.all()
     context ={'formss':form}
     return render(request, 'display_db.html', context)
+
+def update(request, id):
+    instance = get_object_or_404(Post, id=id)
+
+    return render(request, 'update')
