@@ -23,7 +23,14 @@ def display(request):
     context ={'formss':form}
     return render(request, 'display_db.html', context)
 
-def update(request, id):
+def update(request, id=None):
     instance = get_object_or_404(Post, id=id)
+    forms = PostForm(request.POST or None, instance=instance)
+    if forms.is_valid():
+        instance = forms.save(commit=False)
+        instance.save()
 
-    return render(request, 'update')
+    context = {
+        'forms':forms
+    }
+    return render(request, 'forms.html', context)
