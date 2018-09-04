@@ -11,3 +11,7 @@ def forms(request):
     context = {'forms':forms}
     return render(request, 'forms.html', context)
 
+def display(request):
+    form = Post.objects.all()
+    context ={'formss':form}
+    return render(request, 'display_db.html', context)
