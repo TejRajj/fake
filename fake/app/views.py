@@ -9,9 +9,13 @@ def index(request):
 def add(request):
     forms = PostForm(request.POST or None)
     if forms.is_valid():
-        instance = forms.save(commit=True)
+        instance = forms.save(commit=False)
+        instance.save()
 
 
+    #if request.method == "POST":
+    #    print(request.POST.get('First_name'))
+    #    print(request.POST.get('Last_name'))
     context = {'forms':forms}
     return render(request, 'forms.html', context)
 
