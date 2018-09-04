@@ -10,3 +10,7 @@ def forms(request):
     forms = PostForm
     context = {'forms':forms}
     return render(request, 'forms.html', context)
+
+def display(request):
+    context={}
+    return render(request, 'display_db.html', context)
